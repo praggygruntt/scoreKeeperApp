@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="app.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="frame">
+            <div class="frameImage"></div>
+            <div class="frameContent">
+                <h1>Volleyball ScoreKeeper</h1>
+                <hr>
+                <p class="score">
+                    <span class="team1">0</span><span> to </span><span class="team2">0</span>
+                </p>
+                <div class="controls">
+                    <label for="winningScore">Playing to:&nbsp;</label>
+                    <select name="winningScore" id="winningScore">
+                        <option value="3">3</option>
+                        <option value="5">5</option>
+                        <option value="8">8</option>
+                        <option value="11">11</option>
+                        <option value="15">15</option>
+                        <option value="21">21</option>
+                    </select>
+                </div>
+                <p class="info">Use the buttons below to keep score!</p>
+                <hr>
+                <div class="buttons">
+                    <button class="team1" id="team1Button">+1 Team 1</button>
+                    <button class="team2" id="team2Button">+1 Team 2</button>
+                    <button class="reset" id="resetButton">Reset Game</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="app.js"></script>
+</body>
+
+</html>
