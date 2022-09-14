@@ -2,4 +2,4 @@ HTML, CSS & JS
 Event Listeners
 Game Logic
 Desctructuring
-Tailwind CSS
+Bulma CSS
