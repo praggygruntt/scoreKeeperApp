@@ -1,66 +1,56 @@
-// Create Targets
-let team1Button = document.querySelector("#team1Button");
-let team2Button = document.querySelector("#team2Button");
+// Element Targets
+
 let resetButton = document.querySelector("#resetButton");
-let team1ScoreDisplay = document.querySelector(".team1");
-let team2ScoreDisplay = document.querySelector(".team2");
 let winningScoreSelect = document.querySelector("#winningScore");
 
+// Variables & Objects
 
-// Variables
-let score1 = 0;
-let score2 = 0;
 let winningScore = 3;
 let gameOver = false;
 
+const t1 = {
+    score: 0,
+    button: document.querySelector("#team1Button"),
+    display: document.querySelector(".team1")
+};
+const t2 = {
+    score: 0,
+    button: document.querySelector("#team2Button"),
+    display: document.querySelector(".team2")
+};
 
+// Functions
 
-// Scoring Logic
-
-
-team1Button.addEventListener("click", function () {
+function updateScores(team, opponent) {
     if (!gameOver) {
-        score1++;
-        if (score1 === winningScore) {
+        team.score++;
+        if (team.score === winningScore) {
             gameOver = true;
-            team1ScoreDisplay.classList.add('has-text-success');
-            team2ScoreDisplay.classList.add('has-text-danger');
-            team1Button.disabled = true;
-            team2Button.disabled = true;
+            team.display.classList.add('has-text-success');
+            opponent.display.classList.add('has-text-danger');
+            team.button.disabled = true;
+            opponent.button.disabled = true;
         }
-        team1ScoreDisplay.textContent = score1;
+        team.display.textContent = team.score;
 
     }
-});
-
-team2Button.addEventListener("click", function () {
-    if (!gameOver) {
-        score2++;
-        if (score2 === winningScore) {
-            gameOver = true;
-            team2ScoreDisplay.classList.add('has-text-success');
-            team1ScoreDisplay.classList.add('has-text-danger');
-            team1Button.disabled = true;
-            team2Button.disabled = true;
-        }
-        team2ScoreDisplay.textContent = score2;
-
-    }
-});
+}
 
 const resetGame = function () {
     gameOver = false;
-    [score1, score2] = [0, 0];
-    team1ScoreDisplay.textContent = score1;
-    team2ScoreDisplay.textContent = score2;
-    team1ScoreDisplay.classList.remove('has-text-success', 'has-text-danger');
-    team2ScoreDisplay.classList.remove('has-text-success', 'has-text-danger');
-    team1Button.disabled = false;
-    team2Button.disabled = false;
+    for (let t of [t1, t2]) {
+        t.score = 0;
+        t.display.textContent = 0;
+        t.display.classList.remove('has-text-success', 'has-text-danger');
+        t.button.disabled = false;
+    }
 }
 
-resetButton.addEventListener("click", resetGame);
+// Event Listeners
 
+t1.button.addEventListener("click", function () { updateScores(t1, t2) });
+t2.button.addEventListener("click", function () { updateScores(t2, t1) });
+resetButton.addEventListener("click", resetGame);
 winningScoreSelect.addEventListener("change", function (e) {
     winningScore = parseInt(this.value);
     resetGame();
