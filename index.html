@@ -5,45 +5,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="app.css">
+    <!-- <link rel="stylesheet" href="app.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
-
-    <div class="container">
-        <div class="frame">
-            <div class="frameImage"></div>
-            <div class="frameContent">
-                <h1>Volleyball ScoreKeeper</h1>
-                <hr>
-                <p class="score">
-                    <span class="team1">0</span><span> to </span><span class="team2">0</span>
-                </p>
-                <div class="controls">
-                    <label for="winningScore">Playing to:&nbsp;</label>
-                    <select name="winningScore" id="winningScore">
-                        <option value="3">3</option>
-                        <option value="5">5</option>
-                        <option value="8">8</option>
-                        <option value="11">11</option>
-                        <option value="15">15</option>
-                        <option value="21">21</option>
-                    </select>
-                </div>
-                <p class="info">Use the buttons below to keep score!</p>
-                <hr>
-                <div class="buttons">
-                    <button class="team1" id="team1Button">+1 Team 1</button>
-                    <button class="team2" id="team2Button">+1 Team 2</button>
-                    <button class="reset" id="resetButton">Reset Game</button>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-half is-offset-one-quarter">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image">
+                                <img height="350px"
+                                    src="https://images.unsplash.com/photo-1519046947096-f43d6481532b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80"
+                                    alt="Placeholder image">
+                            </figure>
+                        </div>
+                        <header class="card-header">
+                            <p class="card-header-title">
+                                Volleyball Scorekeeper
+                            </p>
+                            <button class="card-header-icon" aria-label="more options">
+                                <span class="icon has-text-info">
+                                    <i class="fas fa-volleyball fa-pulse" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                        </header>
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <h1 class="title is-1">
+                                        <span class="team1">0</span>
+                                        <span> to </span>
+                                        <span class="team2">0</span>
+                                    </h1>
+                                    <p class="subtitle is-6">Use the buttons below to keep score!</p>
+                                </div>
+                            </div>
+                            <label for="winningScore" class="label is-large is-inline">Playing to:</label>
+                            <div class="select is-rounded">
+                                <select name="winningScore" id="winningScore">
+                                    <option value="3">3</option>
+                                    <option value="5">5</option>
+                                    <option value="8">8</option>
+                                    <option value="11">11</option>
+                                    <option value="15">15</option>
+                                    <option value="21">21</option>
+                                </select>
+                            </div>
+                        </div>
+                        <footer class="card-footer">
+                            <button class="button is-primary is-large card-footer-item" id="team1Button">+1 Team
+                                One</button>
+                            <button class="button is-info is-large card-footer-item" id="team2Button">+1 Team
+                                Two</button>
+                            <button class="button is-danger is-large reset card-footer-item" id="resetButton">Reset
+                                Game</button>
+                        </footer>
+                    </div>
                 </div>
             </div>
-        </div>
-
-    </div>
+    </section>
 
 
     <script src="app.js"></script>
+
 </body>
 
 </html>

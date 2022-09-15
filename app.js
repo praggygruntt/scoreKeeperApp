@@ -5,7 +5,7 @@ let resetButton = document.querySelector("#resetButton");
 let team1ScoreDisplay = document.querySelector(".team1");
 let team2ScoreDisplay = document.querySelector(".team2");
 let winningScoreSelect = document.querySelector("#winningScore");
-let headline = document.querySelector("h1");
+
 
 // Variables
 let score1 = 0;
@@ -23,11 +23,13 @@ team1Button.addEventListener("click", function () {
         score1++;
         if (score1 === winningScore) {
             gameOver = true;
-            headline.innerText = "Team 1 Wins the Game!";
-            team1ScoreDisplay.style.color = "green";
-            team2ScoreDisplay.style.color = "gray";
+            team1ScoreDisplay.classList.add('has-text-success');
+            team2ScoreDisplay.classList.add('has-text-danger');
+            team1Button.disabled = true;
+            team2Button.disabled = true;
         }
         team1ScoreDisplay.textContent = score1;
+
     }
 });
 
@@ -36,12 +38,13 @@ team2Button.addEventListener("click", function () {
         score2++;
         if (score2 === winningScore) {
             gameOver = true;
-            headline.innerText = "Team 2 Wins the Game!";
-            team2ScoreDisplay.style.color = "green";
-            team1ScoreDisplay.style.color = "gray";
-
+            team2ScoreDisplay.classList.add('has-text-success');
+            team1ScoreDisplay.classList.add('has-text-danger');
+            team1Button.disabled = true;
+            team2Button.disabled = true;
         }
         team2ScoreDisplay.textContent = score2;
+
     }
 });
 
@@ -50,9 +53,10 @@ const resetGame = function () {
     [score1, score2] = [0, 0];
     team1ScoreDisplay.textContent = score1;
     team2ScoreDisplay.textContent = score2;
-    headline.innerText = "Volleyball Scorekeeper";
-    team2ScoreDisplay.style.color = "orange";
-    team1ScoreDisplay.style.color = "darkturquoise";
+    team1ScoreDisplay.classList.remove('has-text-success', 'has-text-danger');
+    team2ScoreDisplay.classList.remove('has-text-success', 'has-text-danger');
+    team1Button.disabled = false;
+    team2Button.disabled = false;
 }
 
 resetButton.addEventListener("click", resetGame);
